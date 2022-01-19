@@ -1,26 +1,26 @@
 # x-ui
-支持多协议多用户的 xray 面板
+xray panel supporting multi-protocol multi-user
 
-# 功能介绍
-- 系统状态监控
-- 支持多用户多协议，网页可视化操作
-- 支持的协议：vmess、vless、trojan、shadowsocks、dokodemo-door、socks、http
-- 支持配置更多传输配置
-- 流量统计，限制流量，限制到期时间
-- 可自定义 xray 配置模板
-- 支持 https 访问面板（自备域名 + ssl 证书）
-- 更多高级配置项，详见面板
+# Features
+- System Status Monitoring
+- Support multi-user multi-protocol, web page visualization operation
+- Supported protocols: vmess, vless, trojan, shadowsocks, dokodemo-door, socks, http
+- Support for configuring more transport configurations
+- Traffic statistics, limit traffic, limit expiration time
+- Customizable xray configuration templates
+- Support https access panel (self-provided domain name + ssl certificate)
+- For more advanced configuration items, please refer to the panel
 
-# 安装&升级
+# Install & Upgrade
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 ```
 
-## 手动安装&升级
-1. 首先从 https://github.com/vaxilu/x-ui/releases 下载最新的压缩包，一般选择`amd64`架构
-2. 然后将这个压缩包上传到服务器的`/root/`目录下，并使用`root`用户登录服务器
+## Manual install & upgrade
+1. First download the latest compressed package from https://github.com/vaxilu/x-ui/releasesamd64 , generally choose the architecture
+2. Then upload the compressed package to the /root/directory of the server and rootlog in to the server with the user
 
-> 如果你的服务器 cpu 架构不是`amd64`，自行将命令中的`amd64`替换为其他架构
+> If your server cpu architecture is not amd64, replace the command amd64with another architecture by yourself
 
 ```
 cd /root/
@@ -35,15 +35,15 @@ systemctl enable x-ui
 systemctl restart x-ui
 ```
 
-## 使用docker安装
+## Install using docker
 
-> 此 docker 教程与 docker 镜像由[Chasing66](https://github.com/Chasing66)提供
+> This docker tutorial and docker image are provided by Chasing66
 
-1. 安装docker
+1. install docker
 ```shell
 curl -fsSL https://get.docker.com | sh
 ```
-2. 安装x-ui
+2. install x-ui
 ```shell
 mkdir x-ui && cd x-ui
 docker run -itd --network=host \
@@ -52,28 +52,26 @@ docker run -itd --network=host \
     --name x-ui --restart=unless-stopped \
     enwaiax/x-ui:latest
 ```
->Build 自己的镜像
+> Build your own image
 ```shell
 docker build -t x-ui .
 ```
 
-## 建议系统
+## suggestion system
 - CentOS 7+
 - Ubuntu 16+
 - Debian 8+
 
-# 常见问题
-
-## 从 v2-ui 迁移
-首先在安装了 v2-ui 的服务器上安装最新版 x-ui，然后使用以下命令进行迁移，将迁移本机 v2-ui 的`所有 inbound 账号数据`至 x-ui，`面板设置和用户名密码不会迁移`
-> 迁移成功后请`关闭 v2-ui`并且`重启 x-ui`，否则 v2-ui 的 inbound 会与 x-ui 的 inbound 会产生`端口冲突`
+## common problem
+## Migrating from v2-ui
+First install the latest version of x-ui on the server where v2-ui is installed, and then use the following command to migrate, which will migrate the native v2-ui 所有 inbound 账号数据to x-ui,面板设置和用户名密码不会迁移
+> 关闭 v2-uiPlease and after the migration is successful 重启 x-ui, otherwise the inbound of v2-ui will be generated with the inbound of x-ui端口冲突
 ```
 x-ui v2-ui
 ```
 
-## issue 关闭
-各种小白问题看得血压很高
+## issue closed
+All kinds of small white problems see high blood pressure
 
 ## Stargazers over time
-
 [![Stargazers over time](https://starchart.cc/vaxilu/x-ui.svg)](https://starchart.cc/vaxilu/x-ui)
